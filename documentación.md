@@ -167,9 +167,11 @@ pedro = Usuario('Pedro', 'García')
 juan = UsuarioAdmin('Juan', 'Pérez')
 ```
 Si le pedimos que ejecute las funciones saludo y nuevo_admin con juan, vamos a ver que ejecuta las dos sin problema, ya que 'juan' es ```UsuarioAdmin``` y tiene acceso a la clase ```Usuario```
+
 ![Class Inheritance 1](Images/inh-1.png)
 
 Sin embargo, si realizamos la misma acción con el objeto 'pedro', que solamente es ```Usuario```, observamos cómo tiene acceso a la función saludo, pero no a la función nuevo_admin.
+
 ![Class Inheritance 2](Images/inh-2.png)
 ![Class Inheritance error](Images/inh-error.png)
 
@@ -207,7 +209,7 @@ Si ejecutamos el código anterior,
 
 ![Class Inheritance Polymorphism](Images/inh-polymorph.png)
 
-Como se puede observar, todas las subclases tienen acceso a la clase principal, de la cual obtienen el nombre y el apellido del usuario. Y cada subclase va sobreescribiendo el comportamiento de una misma función (```saludo```). Se escribe el método \_\_init_\_ una sola vez y luego todas las subclases lo van heredando. Además, al crear la función 'saludo' en la clase principal se puede observar que contiene ```raise NotImplementedError(...)```. Esto comunica a otros desarrolladores que no deben llamar directamente a esta función en esta clase, sino que está pensada para que sea llamada desde las subclases. Los polimorfismos son útiles cuando hay muchas funciones compartidas entre la clase principal y las subclases, ya que permite ahorrar bastantes líneas de código. 
+Como se puede observar, todas las subclases tienen acceso a la clase principal, de la cual obtienen el nombre y el apellido del usuario. Y cada subclase va sobreescribiendo el comportamiento de una misma función (```saludo```). Se escribe el método \_\_init_\_ una sola vez y luego todas las subclases lo van heredando. Además, al crear la función 'saludo' en la clase principal se puede observar que contiene ```raise NotImplementedError('Subclass must be implemented')```. Esto comunica a otros desarrolladores que no deben llamar directamente a esta función en esta clase, sino que está pensada para que sea llamada desde las subclases. Los polimorfismos son útiles cuando hay muchas funciones compartidas entre la clase principal y las subclases, ya que permite ahorrar bastantes líneas de código. 
 
 # API
 API son las siglas de Application Programming Interface. Es el nexo de unión entre dos aplicaciones que necesitan comunicarse entre sí para compartir información y funcionalidades, en otras palabras, es la forma de comunicación entre dos aplicaciones. Existen diferentes plataformas que ayudan a crear y utilizar APIs, una de ellas es Postman, hablaremos de ella más adelante. La manera en la que se comunican dos aplicaciones es mediante verbos que definen acciones. Estos verbos permitem obtener (```GET```), actualizar (```PUT/PATCH```), crear (```POST```) y borrar (```DELETE```) información desde una aplicación a otra aplicación.
